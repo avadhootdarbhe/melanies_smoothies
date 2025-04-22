@@ -11,8 +11,6 @@ st.write(
 )
 
 
-smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
-st.text(smoothiefroot_response. json())
 conn = st.connection("snowflake")
 session = conn.session()
 my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'))
@@ -28,6 +26,10 @@ ingredient_list = st.multiselect(
     max_selections=5
    ,
 )
+
+smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
+st.text(smoothiefroot_response. json())
+sf_df = st.dataframe(smoothiefroot_response.json(), use_container_width=True)
 
 
 if ingredient_list:
