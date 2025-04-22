@@ -23,6 +23,11 @@ my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT
 name_on_order = st.text_input("Name of Smoothie: ")
 st.write("The name of the Smoothie will be:", name_on_order)
 
+pd_df = my_dataframe.to_pandas()
+st.dataframe(data=pd_df)
+st.stop()
+
+
 ingredient_list = st.multiselect(
     "Choose upto 5 ingredients",
     my_dataframe,
@@ -30,7 +35,7 @@ ingredient_list = st.multiselect(
    ,
 )
 
-pd_df = my_dataframe.to_pandas()
+
 
 
 
