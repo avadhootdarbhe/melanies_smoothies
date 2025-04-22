@@ -12,7 +12,7 @@ st.write(
 
 
 smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
-smoothiefroot_json = smoothiefroot_response.json()
+st.text(smoothiefroot_response. json())
 conn = st.connection("snowflake")
 session = cnx.session()
 my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'))
